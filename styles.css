@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    animation: container-sway 3s ease-in-out infinite, 
+               container-move 15s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
+               drunk-blur 10s ease-in-out infinite;
+}
+
+@keyframes container-sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes container-move {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(50px, -50px) rotate(5deg); }
+    50% { transform: translate(-50px, -100px) rotate(-5deg); }
+    75% { transform: translate(-100px, 50px) rotate(5deg); }
+}
+
+@keyframes drunk-blur {
+    0%, 10%, 25%, 75%, 90%, 100% { filter: blur(0); }
+    20% { filter: blur(2px); }
+    50% { filter: blur(4px); }
+    85% { filter: blur(3px); }
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    margin: 0 auto;
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: center 20%;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+ 
+.cell {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #fff;
+    border: 2px solid #333;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+@media (min-width: 768px) {
+    .board {
+        width: 400px;
+    }
+
+    .cell {
+        font-size: 64px;
+    }
+}
